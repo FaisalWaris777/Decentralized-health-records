@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState,useEffect,useLayoutEffect} from 'react';
+import { BrowserRouter,Routes,Route,useHistory,Link} from 'react-router-dom';
+import Navbar from "./components/navbar/navbar";
+import MainPage from "./components/main-page/main";
+import Dashboard from './components/dashboard/dashboard';
+import SearchRecordsPage from './components/search-records/search';
+import ContactPage from './components/contact/contact';
+import AboutUsPage from './components/about-us/about-us';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    < BrowserRouter>
+    <Routes>
+    <Route path="/" element={<><Navbar/><MainPage/></>} />
+    <Route path="/dashboard" element={<><Navbar/><Dashboard/></>} />
+    <Route path="/search-records" element={<><Navbar/><SearchRecordsPage/></>} />
+    <Route path="/contactus" element={<><Navbar/><ContactPage/></>} />
+    <Route path="/aboutus" element={<><Navbar/><AboutUsPage/></>} />
+    </Routes>
+    </BrowserRouter>
+    );
 }
 
 export default App;
